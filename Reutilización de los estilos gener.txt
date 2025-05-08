@@ -1,0 +1,51 @@
+/* Reutilización de los estilos generales de login y ventas */
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+}
+
+.container p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  .container h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+
+  .container h2 {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 50%;
+  }
+
+  .container h2 {
+    font-size: 2.5em;
+  }
+}
