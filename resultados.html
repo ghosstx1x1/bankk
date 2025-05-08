@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultados - Banca de Lotería</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Resultados de Lotería</title>
 </head>
 <body>
-  <div class="container">
-    <h2>Resultados de la Lotería</h2>
-    <p>Lotería: Mega Millions</p>
-    <p>Número: 12345</p>
-    <p>Premio: $10,000,000</p>
+  <h2>Resultados de Lotería</h2>
+  <button id="mostrarResultados">Ver Resultados</button>
+  <div id="resultados" style="display: none;">
+    <p>El número ganador es: 12345</p>
   </div>
+
+  <script>
+    document.getElementById("mostrarResultados").addEventListener("click", function() {
+      const resultados = document.getElementById("resultados");
+      if (resultados.style.display === "none") {
+        resultados.style.display = "block";
+      } else {
+        resultados.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>

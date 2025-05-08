@@ -3,20 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventas - Banca de Lotería</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Venta de Boletos</title>
 </head>
 <body>
-  <div class="container">
-    <form class="venta-form">
-      <h2>Registrar Venta de Boleto</h2>
-      <label for="numero">Número del boleto:</label>
-      <input type="text" id="numero" name="numero" placeholder="Ingrese el número del boleto" required>
-      <label for="monto">Monto:</label>
-      <input type="number" id="monto" name="monto" placeholder="Ingrese el monto" required>
-      <button type="submit">Registrar Venta</button>
-      <button type="button" class="btn-secondary">Ver Resultados</button>
-    </form>
-  </div>
+  <h2>Compra de Boletos</h2>
+  <form id="ventaForm">
+    <input type="text" id="nombre" placeholder="Nombre del comprador" required>
+    <input type="number" id="boletos" placeholder="Número de boletos" required>
+    <button type="button" id="comprarButton">Comprar Boletos</button>
+  </form>
+
+  <script>
+    document.getElementById("comprarButton").addEventListener("click", function() {
+      const nombre = document.getElementById("nombre").value;
+      const boletos = document.getElementById("boletos").value;
+
+      if (nombre === "" || boletos === "") {
+        alert("Por favor, ingresa tu nombre y el número de boletos.");
+      } else {
+        alert("¡Boletos comprados con éxito!");
+        // Aquí podrías generar un PDF o hacer algo más con los datos
+      }
+    });
+  </script>
 </body>
 </html>
+<a href="https://wa.me/?text=Tu%20ticket%20de%20lotería%20es:%20%0A%20Nombre:%20X%20%0A%20Boletos%20Comprados:%2012345"
+   target="_blank">Enviar por WhatsApp</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  document.getElementById("comprarButton").addEventListener("click", function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    const nombre = document.getElementById("nombre").value;
+    const boletos = document.getElementById("boletos").value;
+    
+    doc.text("Ticket de Lotería", 10, 10);
+    doc.text("Nombre: " + nombre, 10, 20);
+    doc.text("Boletos comprados: " + boletos, 10, 30);
+    
+    // Guardar el PDF con el nombre "ticket.pdf"
+    doc.save("ticket.pdf");
+  });
+</script>

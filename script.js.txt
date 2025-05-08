@@ -1,0 +1,13 @@
+// script.js
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if (username === "" || password === "") {
+    alert("Por favor, completa todos los campos.");
+    event.preventDefault(); // Evita que el formulario se envíe
+  } else {
+    alert("Login exitoso!");
+    // Aquí iría la lógica para redirigir a otra página si todo está bien.
+  }
+});
